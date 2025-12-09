@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAST</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="cover">
+    <h1 class="cover-text">BEAST</h1>
+  </div>
+
+  <!-- New Intro Section -->
+<section class="intro-section">
+  <!-- Top decorative line -->
+  <div class="ornament-line top-line">
+    <span class="ornament">F</span>
+  </div>
+
+  <!-- Main content -->
+  <div class="intro-content">
+    <div class="intro-text">
+      <p>
+        <span class="dropcap">B</span>
+        east is a display typeface designed to act as a drop-cap letter for the start of paragraphs. 
+        A nod to illustrated manuscripts of medieval bestiaries, the typeface gathers local beasts 
+        no bigger than a human palm. In this collection are the notorious spotted lanternfly, 
+        the bay scallop, and whirlybirds.
+      </p>
+    </div>
+    <div class="intro-image">
+      <img src="Images/beast.png" alt="Lanternfly illustration" />
+    </div>
+  </div>
+
+  <!-- Bottom decorative line -->
+  <div class="ornament-line bottom-line">
+    <span class="ornament">G</span>
+  </div>
+</section>
+
+  <script>
+    // JavaScript: background image changes each time the font animation completes
+    const cover = document.querySelector('.cover');
+    const images = [
+      'Images/3.jpg',
+      'Images/2.jpg',
+      'Images/4.jpg'
+    ];
+    let index = 0;
+    cover.style.backgroundImage = `url(${images[index]})`;
+
+    const duration = 4000; // matches CSS animation duration
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      cover.style.backgroundImage = `url(${images[index]})`;
+    }, duration);
+  </script>
+</body>
+</html>
