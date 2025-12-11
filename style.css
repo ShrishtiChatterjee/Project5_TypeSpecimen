@@ -1,67 +1,4 @@
-@font-face {
-  font-family: "Lantern";
-  src: url("LanterFlies&MapleVF.ttf") format("truetype");
-}
-
-/* Reset */
-body {
-    margin: 0;
-  padding: 0;
-  background-color: #d5e9a1;
-  overflow-x: hidden; /* prevent horizontal scroll only */
-  overflow-y: auto;   /* allow vertical scrolling */
-}
-
-/* === COVER (full viewport) === */
-.cover {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 1s ease-in-out;
-}
-
-/* === MAIN TEXT === */
-.cover-text {
-  font-family: "Lantern";
-  font-size: max(100px, 18vw);
-  color: rgb(255, 255, 255);
-  line-height: 1;
-  margin: 0;
-  letter-spacing: 20px;
-  text-align: center;
-  font-weight: normal;
-
-  /* Variable axis animation only — no transform */
-  animation: fontGrow 4s ease-in-out infinite alternate;
-
-  /* Prevent visual artifacts */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* === FONT ANIMATION === */
-@keyframes fontGrow {
-  from {
-    font-variation-settings: "GROW" 0;
-  }
-  to {
-    font-variation-settings: "GROW" 100;
-  }
-}
-
-/* Responsive tweak */
-@media (max-width: 600px) {
-  .cover-text {
-    font-size: max(24px, 20vw);
-  }
-}
+/* Loading all fonts */
 
 @font-face {
   font-family: "Lantern";
@@ -78,108 +15,342 @@ body {
   src: url("FernOrnaments-Regular.otf") format("truetype");
 }
 
-/* -------------------------------------------- */
-/* INTRO SECTION                                */
-/* -------------------------------------------- */
+/* body content  section */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #bbe774;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+/* Beast Cover */
+.cover {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.cover-text {
+  font-family: "Lantern";
+  font-size: max(100px, 18vw);
+  color: rgb(255, 255, 255);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 20px;
+  text-align: center;
+  font-weight: normal;
+  animation: fontGrow 4s ease-in-out infinite alternate;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* changing axis (grow) */
+@keyframes fontGrow {
+  from { font-variation-settings: "GROW" 0; }
+  to { font-variation-settings: "GROW" 100; }
+}
+@media (max-width: 600px) {
+  .cover-text { 
+    font-size: max(24px, 20vw); 
+  }
+}
+
+/* Introdection*/
+
 .intro-section {
-  background-color: #7a7a7a; /* grey tone as in your image */
-  color: #fbfaf7;
+  background-color: #19231f;
   width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  padding: 40px 0;
+  padding: 40px 20px;
   box-sizing: border-box;
 }
 
-/* -------- Ornaments and Lines -------- */
+/* ornamental divider lines*/
 .ornament-line {
   width: 90%;
   position: relative;
   text-align: center;
-  border-top: 1px solid #fbfaf7;
+  border-top: 1px solid #cef2ad;
   margin: 10px 0;
 }
 
 .ornament-line.bottom-line {
   border-top: none;
-  border-bottom: 1px solid #fbfaf7;
+  border-bottom: 1px solid #cef2ad;
 }
 
+/* F and G fern ornament */
 .ornament {
   font-family: "Fern";
   font-size: 24px;
-  color: #fbfaf7;
-  background-color: #7a7a7a;
+  color: #cef2ad;
+  background-color: #19231f;
   padding: 0 10px;
   position: relative;
-  top: -0.6em; /* raises above line for top ornament */
+  top: -10px;
 }
 
 .bottom-line .ornament {
-  top: 0.6em; /* lowers below line for bottom ornament */
+  top: 10px;
 }
 
-/* -------- Main Content Layout -------- */
+/* column container */
 .intro-content {
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* paragraph text styling */
+.intro-paragraph {
+  font-family: "LibreBaskerville";
+  font-size: 16px;
+  line-height: 1.9;
+  color: #fbfaf7;
+  text-align: left;
+  margin: 20px;
+}
+
+/* drop cap */
+.png-dropcap {
+  float: left;
+  width: AUTO;
+  height: 120px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  shape-margin: 10px;
+}
+
+/* Lanternfly image between paragraphs */
+.lantern-image {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+/* about section */
+
+.about-section {
+  width: 100vw;
+  min-height: 30vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  gap: 40px;
-  flex: 1;
 }
 
-/* Left Text */
-.intro-text {
+/* image block (leftside) */
+.about-image-block {
   flex: 1;
-  font-family: "LibreBaskerville";
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #fbfaf7;
-}
-
-/* Drop Cap styling */
-.dropcap {
-  float: left;
-  font-family: "Lantern";
-  font-size: 6rem;
-  line-height: 0.8;
-  margin-right: 10px;
-  color: #fbfaf7;
-}
-
-/* Right Image */
-.intro-image {
-  flex: 1;
+  background-color: #8ca75d; 
   display: flex;
+  align-items: flex-start; 
   justify-content: center;
-  align-items: center;
+  padding: 120px 60px; 
+  box-sizing: border-box;
 }
 
-.intro-image img {
-  max-width: 80%;
+.about-image {
+  width: 100%;
+  max-width: 600px;
   height: auto;
 }
 
-/* Responsive layout */
-@media (max-width: 800px) {
-  .intro-content {
+/* Red text block (right side) */
+.about-text-block {
+  flex: 1;
+  background-color: #e1543c; 
+  color: #ffffff;
+  padding: 100px 70px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ABOUT title in Lantern font */
+.about-title {
+  font-family: "Lantern";
+  font-size: 80px;
+  font-weight: normal;
+  margin: 40px 0 40px 0;
+  letter-spacing: 8px;
+  font-variation-settings: "GROW" 90;
+}
+
+/* body text */
+.about-body {
+  font-family: "LibreBaskerville";
+  font-size: 16px;
+  line-height: 1.9;
+  margin: bottom 10%;
+  max-width: 500px;
+}
+
+.ornament-line-2 {
+  width: 70%;
+  position: relative;
+  text-align: center;
+  border-top: 1px solid #cef2ad; 
+  margin: 10px 0;
+}
+
+.ornament-line-2.bottom-line {
+  border-top: none;
+  border-bottom: 1px solid #cef2ad;
+}
+
+.ornament-2 {
+  font-family: "Fern";
+  font-size: 24px;
+  color: #cef2ad; 
+  background-color: #e1543c; 
+  padding: 0 10px;
+  position: relative;
+  top: 15px;
+}
+
+
+/* responsive */
+@media (max-width: 900px) {
+  .about-section {
     flex-direction: column;
-    text-align: center;
   }
+ .about-text-block,
+  .about-image-block {
+    flex: none;
+    width: 100%;
+  }
+}
 
-  .dropcap {
-    float: none;
-    display: block;
-    margin: 0 auto 10px auto;
-  }
+/* type tester */
 
-  .intro-image img {
-    max-width: 60%;
-  }
+.type-playground {
+  width: 100vw;
+  min-height: 60vh;
+  background-color: #bbe774;
+  padding: 80px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* sliding controls */
+.type-controls {
+  display: flex;
+  justify-content: center;
+  gap: 120px;
+  width: 100%;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: "LibreBaskerville";
+  color: #19231f;
+  font-size: 16px;
+}
+
+.control-label {
+  font-style: italic;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slider-wrapper input[type="range"] {
+  width: 200px;
+  -webkit-appearance: none;
+  background: #93bb54;
+  height: 3px;
+  border-radius: 2px;
+  outline: none;
+}
+
+/* hide default slider */
+.slider-wrapper input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* fern icon slider thumb */
+.slider-icon.fern-icon {
+  position: absolute;
+  top: -12px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  font-family: "Fern";
+  font-size: 22px;
+  color: #e1543c;
+}
+
+/* text displayarea */
+.type-output {
+  margin-top: -40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* display text */
+.play-text {
+  margin: 0;
+  padding: 0;
+  font-family: "Lantern";
+  font-size: 25px;
+  color: #19231f;
+  text-align: center;
+  letter-spacing: 5px;
+  white-space: pre-line;
+  font-variation-settings: "GROW" 50;
+}
+
+.download-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+.download-button {
+  font-family: "Lantern";
+  font-size: 20px;
+  font-variation-settings: "GROW" 0; 
+  color: #cef2ad; 
+  background-color: #e1543c; 
+  padding: 15px 15px;
+  border: none;
+  border-radius: 10px; 
+  text-decoration: none;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.8s ease;
+  display: inline-block;
+}
+
+.download-button:hover {
+  transform: scale(1.05);
 }
